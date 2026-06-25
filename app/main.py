@@ -1,6 +1,9 @@
 from fastapi import FastAPI
 from app.routers import products
+from app.database import Base, engine
+from app.models.products import Product
 
+Base.metadata.create_all(bind=engine)
 app = FastAPI(
     title="Inventory Sales API",
     version="1.0.0",
