@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from app.routers import products
 from app.database import Base, engine
-from app.models.products import Product
+# from app.models.products import Product
 
 Base.metadata.create_all(bind=engine)
 app = FastAPI(
@@ -11,7 +11,7 @@ app = FastAPI(
 )
 app.include_router(products.router)
 
-@app.get("/health", tags=["Health Check"])
-def health_check():
-    return {"status": "healthy", "message": "Inventory Sales API is running smoothly."}
+# @app.get("/health", tags=["Health Check"])
+# def health_check():
+#     return {"status": "healthy", "message": "Inventory Sales API is running smoothly."}
 
